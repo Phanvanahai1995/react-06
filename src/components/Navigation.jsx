@@ -28,7 +28,14 @@ function Navigation() {
         Products
       </NavLink>
       <div>
-        <NavLink to="/cart" className="relative">
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive
+              ? "text-yellow-400 font-bold relative"
+              : "font-bold relative"
+          }
+        >
           <FaCartPlus className="text-3xl" />
           {cart.length > 0 && (
             <span className="absolute top-[-15px] bg-white text-lg w-[25px] h-[25px] flex justify-center items-center rounded-full right-[-30px] text-orange-600">
