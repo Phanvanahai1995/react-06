@@ -33,6 +33,7 @@ const cartSlice = createSlice({
         (item) => item._id === action.payload
       );
       cartSelected.quantity = cartSelected.quantity + 1;
+      cartSelected.left = cartSelected.left - 1;
 
       localStorage.setItem("product", JSON.stringify(state.cart));
     },
@@ -69,6 +70,8 @@ export const {
   decrementCart,
   deleteCart,
   checkoutCart,
+  setLoading,
+  removeLoading,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
