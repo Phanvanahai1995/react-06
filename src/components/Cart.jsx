@@ -9,6 +9,7 @@ import {
   deleteCart,
   incrementCart,
 } from "../store/cartSilce";
+import toast from "react-hot-toast";
 
 function Cart() {
   const cart = useSelector((store) => store.cart.cart);
@@ -29,6 +30,7 @@ function Cart() {
 
   function handleCheckoutCart() {
     dispatch(checkoutCart());
+    toast.success("Thanh toán thành công!");
   }
 
   let content;
