@@ -43,6 +43,7 @@ const cartSlice = createSlice({
 
       if (cartSelected.quantity > 1) {
         cartSelected.quantity = cartSelected.quantity - 1;
+        cartSelected.left = cartSelected.left + 1;
       } else {
         state.cart = state.cart.filter((item) => item._id !== action.payload);
       }
