@@ -1,10 +1,12 @@
 import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 
 function Paginate() {
   const navigate = useNavigate();
+
+  const param = useParams().page;
 
   function handlePageClick(data) {
     const page = data.selected + 1;
@@ -23,6 +25,7 @@ function Paginate() {
       containerClassName={"flex mt-5 justify-center items-center"}
       pageClassName={"border px-2 text-white bg-blue-300"}
       activeClassName={"bg-blue-500"}
+      forcePage={+param - 1}
     />
   );
 }
